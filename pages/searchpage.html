@@ -1,0 +1,95 @@
+{{define "searchpage"}}
+
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        {{if (eq (index . "other") "n")}}
+            <title>- Cerca con Google</title>
+            <link href="/images/googleg_lodp.ico" rel="shortcut icon">
+        {{end}}
+        {{if (eq (index . "other") "y")}}
+            <title>- Risultati {{index . "other_name"}}</title>
+            <link href="/images/blabla_lodp.ico" rel="shortcut icon">
+        {{end}}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="/css/{{index . "css"}}.css" rel="stylesheet">
+        <script src="/js/searchpage.js"></script>
+        {{if (eq (index . "css") "mobile")}}
+            <script src="/js/support.js"></script>
+        {{end}}
+    </head>
+    {{if (eq (index . "other") "n")}}<body>{{end}} {{if (eq (index . "other") "y")}}<body class="_oth">{{end}}
+        <div id="upper-menu">
+            <div id="top-row">
+                {{if (eq (index . "other") "n")}}
+                    <a href="/{{index . "user"}}/" class="_lnk1"><img src="/images/logo-mini.png"></a>
+                {{end}}
+                {{if (eq (index . "other") "y")}}
+                    <a href="/{{index . "user"}}/" class="_lnk2"><img src="/images/other-logo-mini.png"></a>
+                {{end}}
+                <form id="searchbar" action="/{{index . "user"}}/search">
+                    <div id="b1">
+                        <div id="c1">
+                            <input id="q" name="q" value="" autocomplete="off">
+                        </div>
+                        <div id="c2">
+                            <button>
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="bottom-row" style="display: none;">
+                <div id="1" style="display: inline-block;"><a href="/{{index . "user"}}">Tutti</a></div>
+                <div id="2" style="display: inline-block;"><a href="" target="_blank">Immagini</a></div>
+                <div id="3" style="display: inline-block;"><a href="/{{index . "user"}}">Video</a></div>
+                <div id="4" style="display: inline-block;"><a href="/{{index . "user"}}">Notizie</a></div>
+                <div id="5" style="display: inline-block;"><a href="" target="_blank">Maps</a></div>
+            </div>
+        </div>
+
+        <div id="searches">
+
+        </div>
+
+        <div id="footer" class="navbar navbar-default">
+            {{if (eq (index . "other") "n")}}
+                <div id="position">
+                    <div id="1">
+                        <span></span>
+                        Posizione non disponibile
+                    </div>
+                    <div id="2">
+                        <span>&nbsp;-&nbsp;</span>
+                        <a href="https://support.google.com/websearch?p=ws_settings_location&hl=it" target="_blank">Ulteriori informazioni</a>&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+                <div id="others">
+                    <span>
+                        <span>
+                            <a href="//support.google.com/websearch/?p=ws_results_help&hl=it&fg=1" target="_blank">Guida</a>
+                            <a href="//www.google.it/intl/it/policies/privacy/?fg=1" target="_blank">Privacy</a>
+                            <a href="//www.google.it/intl/it/policies/terms/?fg=1" target="_blank">Termini</a>
+                        </span>
+                    </span>
+                </div>
+            {{end}}
+            {{if (eq (index . "other") "y")}}
+                <div style="height: 5em">
+                    <center>
+                        <p>{{index . "other_name"}} Search Engine</p>
+                    </center>
+                </div>
+            {{end}}
+        </div>
+    </body>
+</html>
+
+{{end}}

@@ -1,0 +1,49 @@
+#content
+{
+    margin-top: 3em;
+}
+
+#lg
+{
+    width: 160px;
+}
+
+#nat
+{
+    display: none;
+}
+
+#rw1
+{
+    max-width: 735px;
+    margin: 0 auto 2em;
+}
+
+#cnt1
+{
+    margin: 0 1em;
+    max-width: 700px;
+}
+
+#cnt1 input
+{
+    width: 98%;
+    height: 38px;
+    outline: none;
+    margin: 0 0.9%;
+    border-radius: 8px;
+    padding: 0 0 0 1em;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid silver;
+}
+
+#cnt2
+{
+    display: none;
+}
+
+#footer
+{
+    display: none;
+}
