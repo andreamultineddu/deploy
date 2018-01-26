@@ -71,7 +71,7 @@ function post_for_results(form, push)
 
         if(QueryObject.tbm === "nws")
         {
-            $.post("/results/news",
+            $.post("/amultine/results/news",
                 {
                     q: query,
                     page: start - 1
@@ -80,7 +80,7 @@ function post_for_results(form, push)
         }
         else if(QueryObject.tbm === "vid")
         {
-            $.post("/results/videos",
+            $.post("/amultine/results/videos",
                 {
                     q: query,
                     page: start - 1
@@ -89,7 +89,7 @@ function post_for_results(form, push)
         }
         else
         {
-            $.post("/results/all",
+            $.post("/amultine/results/all",
                 {
                     q: query,
                     page: start - 1
@@ -359,21 +359,21 @@ function renderPageChange(div, data)
         links_b = $("#foot td.b a")
         if(links_b.length === 2)
         {
-            links_b[0].href = "/search?q=" + (links_b[0].href.split("q=")[1].split("&")[0]) + "&page=" + (parseInt(QueryObject.page) - 1)
+            links_b[0].href = "/amultine/search?q=" + (links_b[0].href.split("q=")[1].split("&")[0]) + "&page=" + (parseInt(QueryObject.page) - 1)
             if(QueryObject.tbm === "vid" || QueryObject.tbm === "nws") { links_b[0].href += "&tbm=" + QueryObject.tbm }
-            links_b[1].href = "/search?q=" + (links_b[1].href.split("q=")[1].split("&")[0]) + "&page=" + (parseInt(QueryObject.page) + 1)
+            links_b[1].href = "/amultine/search?q=" + (links_b[1].href.split("q=")[1].split("&")[0]) + "&page=" + (parseInt(QueryObject.page) + 1)
             if(QueryObject.tbm === "vid" || QueryObject.tbm === "nws") { links_b[1].href += "&tbm=" + QueryObject.tbm }
         }
         else
         {
             if (links_b.find("span:nth-child(2)")[0].innerHTML === "Avanti")
             {
-                links_b[0].href = "/search?q=" + (links_b[0].href.split("q=")[1].split("&")[0]) + "&page=" + (parseInt(QueryObject.page) + 1)
+                links_b[0].href = "/amultine/search?q=" + (links_b[0].href.split("q=")[1].split("&")[0]) + "&page=" + (parseInt(QueryObject.page) + 1)
                 if(QueryObject.tbm === "vid" || QueryObject.tbm === "nws") { links_b[0].href += "&tbm=" + QueryObject.tbm }
             }
             else
             {
-                links_b[0].href = "/search?q=" + (links_b[0].href.split("q=")[1].split("&")[0]) + "&page=" + (parseInt(QueryObject.page) - 1)
+                links_b[0].href = "/amultine/search?q=" + (links_b[0].href.split("q=")[1].split("&")[0]) + "&page=" + (parseInt(QueryObject.page) - 1)
                 if(QueryObject.tbm === "vid" || QueryObject.tbm === "nws") { links_b[0].href += "&tbm=" + QueryObject.tbm }
             }
         }
@@ -401,7 +401,7 @@ function renderPageChange(div, data)
                 }
                 else
                 {
-                    links[i].innerHTML = "<a class='fl' href='/search?q=" + myDecodeURI(QueryObject.q) + "&page=" + (parseInt(QueryObject.page) - actual) + "'><span class='csb' style='background-position:-74px 0;width:20px'></span>" + (parseInt(QueryObject.page) - actual) + "</a>"
+                    links[i].innerHTML = "<a class='fl' href='/amultine/search?q=" + myDecodeURI(QueryObject.q) + "&page=" + (parseInt(QueryObject.page) - actual) + "'><span class='csb' style='background-position:-74px 0;width:20px'></span>" + (parseInt(QueryObject.page) - actual) + "</a>"
                     if(QueryObject.tbm === "vid" || QueryObject.tbm === "nws") { links[i].href += "&tbm=" + QueryObject.tbm }
                 }
             }
@@ -613,7 +613,7 @@ function cleanAllGoogleURL()
         if(links[i].href.startsWith("http://localhost:26000/search?ie=UTF-8&"))
         {
             q = links[i].href.substring(30).split("&").filter(function (s) { return s.startsWith("q=") })
-            links[i].href = "/search?" + q[0]
+            links[i].href = "/amultine/search?" + q[0]
         }
         else if(links[i].href.startsWith("http://localhost:26000/url?q="))
         {
@@ -628,7 +628,7 @@ function mapsImagesLink()
 
     for (i = 0; i < imgs.length; i++)
     {
-        if(imgs[i].src.startsWith("http://localhost:26000/maps"))
+        if(imgs[i].src.startsWith("http://localhost/maps"))
         {
             imgs[i].src = "https://www.google.it/maps" + imgs[i].src.split("/maps")[1]
         }
@@ -641,7 +641,7 @@ function setLinkOnClick()
         _id = $(this).attr("id")
 
         $(this).find("a").each(function () {
-            $(this).attr("href", "/redirect?qr=" + QueryObject.q + "&pg=" + QueryObject.page + "&sct=_ls&rdr=" + $(this).attr("href") + "&asc=" + _id)
+            $(this).attr("href", "/amultine/redirect?qr=" + QueryObject.q + "&pg=" + QueryObject.page + "&sct=_ls&rdr=" + $(this).attr("href") + "&asc=" + _id)
         })
     })
 
@@ -652,15 +652,15 @@ function setLinkOnClick()
     if(typeof(mobileUtilities) !== "function")
     {
         $("#leftcol #foot a").each(function () {
-            $(this).attr("href", $(this).attr("href").replace("/search?q=", "/redirect?qr=").replace("&", "%26") + "&pg=" + QueryObject.page + "&sct=_ft&rdr=&asc=-1")
+            $(this).attr("href", $(this).attr("href").replace("/amultine/search?q=", "/redirect?qr=").replace("&", "%26") + "&pg=" + QueryObject.page + "&sct=_ft&rdr=&asc=-1")
         })
     }
 
     $("#rightcol a").each(function(){
         if ($(this).attr("href").startsWith("/url")) {
-            $(this).attr("href", "/redirect?qr=" + QueryObject.q + "&rdr=" + $(this).attr("href").split("?q=")[1].split("&")[0] + "&pg=1&sct=_rc&asc=-2")
+            $(this).attr("href", "/amultine/redirect?qr=" + QueryObject.q + "&rdr=" + $(this).attr("href").split("?q=")[1].split("&")[0] + "&pg=1&sct=_rc&asc=-2")
         } else if($(this).attr("href").startsWith("/search")) {
-            $(this).attr("href", "/redirect?qr=" + $(this).attr("href").split("q=")[1].split("&")[0] + "&pg=1&sct=_rc&asc=-1")
+            $(this).attr("href", "/amultine/redirect?qr=" + $(this).attr("href").split("q=")[1].split("&")[0] + "&pg=1&sct=_rc&asc=-1")
         }
     })
 }
@@ -677,7 +677,7 @@ function correctYoutubeLink()
 
 function sendFeedback()
 {
-    $.post("/feedback",
+    $.post("/amultine/feedback",
         {
             query: QueryObject.q,
             feed: $("#feed form input[type=radio]:checked")[0].id.substr(-1)
