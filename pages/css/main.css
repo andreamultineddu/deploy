@@ -220,7 +220,7 @@ body
     width: 65px;
     height: 13px;
     display: block;
-    background: url(/images/nav_logo229.png) no-repeat 0 -245px;
+    background: url(/amultine/images/nav_logo229.png) no-repeat 0 -245px;
 }
 
 #leftcol > .search > .osl a
@@ -402,7 +402,7 @@ body
 
 #leftcol > .search.mega-video ._uXc ._o0d ._f8d ._W8d
 {
-    background: url(/images/play.png) no-repeat center center;
+    background: url(/amultine/images/play.png) no-repeat center center;
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -602,7 +602,7 @@ body
     width: 65px;
     height: 13px;
     margin-right: 1em;
-    background: url(/images/nav_logo229.png) no-repeat -94px -245px;
+    background: url(/amultine/images/nav_logo229.png) no-repeat -94px -245px;
 }
 
 #rightcol ._o0d div.star div
@@ -610,7 +610,7 @@ body
     width: 65px;
     height: 13px;
     display: block;
-    background: url(/images/nav_logo229.png) no-repeat 0 -245px;
+    background: url(/amultine/images/nav_logo229.png) no-repeat 0 -245px;
 }
 
 #rightcol ._o0d ._Fng

@@ -442,7 +442,6 @@ function printVideoSearchResult(data, now1)
     div.innerHTML += "<div id='leftcol' style='margin-top: 10px; display: inline-block; vertical-align: top;'></div>"
     if (obj.resultSearches !== null)
     {
-        console.log(obj.resultSearches)
 	for(var i = 0; i < obj.resultSearches.length; i++)
         {
             RenderSearch1($("#leftcol")[0], obj.resultSearches[i], i)
@@ -640,7 +639,7 @@ function setLinkOnClick()
 
     $("#leftcol #related-searches a").each(function () {
        $(this).attr("href", "/amultine/redirect" + $(this).attr("href").split("redirect")[1] + "&pg=" + QueryObject.page + "&sct=_rs&rdr=&asc=-1")
-   })
+    })
 
     if(typeof(mobileUtilities) !== "function")
     {
@@ -676,7 +675,7 @@ function correctYoutubeLink()
 
 function sendFeedback()
 {
-    $.post("/feedback",
+	$.post("/amultine/feedback",
         {
             query: QueryObject.q,
             feed: $("#feed form input[type=radio]:checked")[0].id.substr(-1)
