@@ -1,0 +1,81 @@
+{{define "homepage"}}
+
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        {{if (eq (index . "other") "n")}}
+            <title>Google</title>
+            <link href="/images/googleg_lodp.ico" rel="shortcut icon">
+        {{end}}
+        {{if (eq (index . "other") "y")}}
+            <title>BlaBla</title>
+            <link href="/images/blabla_lodp.ico" rel="shortcut icon">
+        {{end}}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <link href="/css/{{index . "css"}}_home.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="upper-menu" class="col-sm-offset-10 col-md-offset-10 col-lg-offset-10 text-right" style="height: 3em; padding-top: 1.2em; padding-right: 30px; font-family: arial,sans-serif; line-height: 24px; vertical-align: top">
+            <!--
+            <div class="pull-right" style="display: inline-block;"><a style="margin-right: 1.2em; color: #000; opacity: .75;"><span class="glyphicon glyphicon-th" style=" margin-top: 2px; font-size: 1.3em;"></span></a></div>
+            <div class="pull-right" style="display: inline-block;"><a style="margin-right: 1.2em; color: #000; opacity: .75;"><span class="glyphicon glyphicon-th" style=" margin-top: 2px; font-size: 1.3em;"></span></a></div>
+            <div class="pull-right" style="display: inline-block;"><a style="margin-right: 1.2em; color: #000; opacity: .75;">Immagini</a></div>
+            <div class="pull-right" style="display: inline-block;"><a style="margin-right: 1.2em; color: #000; opacity: .75;">Gmail</a></div>
+            -->
+        </div>
+        <div id="content">
+            <center>
+                <form onsubmit="return q.value != ''" action="/{{index . "user"}}/search" method="get">
+                    {{if (eq (index . "other") "n")}}
+                        <img id="lg" src="/images/logo.png">
+                        <p id="nat">Italia</p>
+                    {{end}}
+                    {{if (eq (index . "other") "y")}}
+                        <img id="lg" src="/images/other-logo.png">
+                    {{end}}
+                    <div id="rw1">
+                        <div id="cnt1">
+                            <input type="text" name="q" autocomplete="off" autofocus>
+                        </div>
+                        <div id="cnt2">
+                            <button type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="rw2">
+                        <center>
+                            <input class="btn btn-default" value="Cerca con {{if (eq (index . "other") "n")}}Google{{end}}{{if (eq (index . "other") "y")}}{{index . "other_name"}}{{end}}" type="submit">
+                            {{if (eq (index . "other") "n")}}<a id="luck" class="btn btn-default" href="https://www.google.com/doodles">Mi sento fortunato</a>{{end}}
+                        </center>
+                    </div>
+                </form>
+            </center>
+        </div>
+
+        {{if (eq (index . "other") "n")}}
+        <div id="footer" style="position:absolute; bottom: 0.2em; height: 3em; width: 100%; background: #f2f2f2; border-top: 1px solid #e4e4e4; line-height: 40px; font-size: 13px;">
+            <div id="footer-content">
+                <span class="pull-right">
+                    <a style="color: #666; padding-right: 27px; font-family: arial, sans-serif;" href="//www.google.it/intl/it/policies/privacy/?fg=1">Privacy</a>
+                    <a style="color: #666; padding-right: 27px; font-family: arial, sans-serif;" href="//www.google.it/intl/it/policies/terms/?fg=1">Termini</a>
+                    <a style="color: #666; padding-right: 27px; font-family: arial, sans-serif;" href="https://www.google.it/preferences?hl=it">Impostazioni</a>
+                </span>
+                <span class="pull-left">
+                    <a style="color: #666; padding-left: 27px; font-family: arial, sans-serif;" href="//www.google.it/intl/it/ads/?fg=1">Pubblicit&agrave;</a>
+                    <a style="color: #666; padding-left: 27px; font-family: arial, sans-serif;" href="//www.google.it/services/?fg=1">Soluzioni aziendali</a>
+                    <a style="color: #666; padding-left: 27px; font-family: arial, sans-serif;" href="//www.google.it/intl/it/about.html?fg=1">Informazioni</a>
+                </span>
+            </div>
+        </div>
+        {{end}}
+    </body>
+</html>
+
+{{end}}
