@@ -660,6 +660,10 @@ function setLinkOnClick()
 	} else {
             $(this).attr("href", "/amultine/redirect?qr=" + QueryObject.q + "&rdr=" + $(this).attr("href") + "&pg=1&sct=_rc&asc=-2")
         }
+	
+	rrc = $("#rightcol ._rvh ._wvh")
+	if (rrc[0] !== undefined && rrc[0].innerHTML === "Ricerche correlate")
+		$("#rightcol ._rvh").remove()
    })
 }
 
