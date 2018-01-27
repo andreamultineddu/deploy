@@ -658,7 +658,7 @@ function setLinkOnClick()
 	} else if($(this).attr("href").startsWith("q=")) {
 	    $(this).attr("href", "/amultine/redirect?rdr=" + $(this).attr("href").split("q=")[1].split("&")[0] + "&pg=1&sct=_rc&asc=-2")
 	} else {
-            console.log($(this).attr("href"))
+            $(this).attr("href", "/amultine/redirect?qr=" + QueryObject.q + "&rdr=" + $(this).attr("href") + "&pg=1&sct=_rc&asc=-2")
         }
    })
 }

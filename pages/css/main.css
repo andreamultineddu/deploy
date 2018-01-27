@@ -510,6 +510,11 @@ body
     display: none;
 }
 
+#leftcol > .search.book span.f
+{
+    display: none;
+}
+
 #leftcol #related-searches
 {
     margin-top: 15px;
