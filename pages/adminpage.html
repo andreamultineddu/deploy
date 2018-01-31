@@ -1,0 +1,63 @@
+{{define "adminpage"}}
+
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+
+    <body>
+    
+        <script>
+            function change_config() {
+                $.post("/amultine/admin/G1HEz3OdalAK4KMhlswNkCjF6x4Jjjm2X7ZCyI63gqvZZKJqIxoTgnW4hGqw6A8JzegKHHA9QLE9/panel/",
+                    {
+                        OtherEngine: $("form #OtherEngine")[0].value,
+                        ReverseResults: $("form #ReverseResults")[0].value,
+                        AnswerPerPage: $("form #AnswerPerPage")[0].value,
+                        ShuffleAfter: $("form #ShuffleAfter")[0].value,
+                        PickFromPage: $("form #PickFromPage")[0].value,
+                    }).done(function(data, success) {
+                        console.log($("#result"))
+                        $("#result")[0].innerText = "Configurazione aggiornata"
+                    }).fail(function() {})
+
+                return false;
+            }
+        </script>
+
+        <h2 class="text-center">Modifica della configurazione</h2>
+        <form onsubmit="return change_config()" style="width: 30em; margin: 3em auto 0;">
+            <div class="form-group">
+                <label for="OtherEngine">Motore di ricerca finto:</label>
+                <input class="form-control" id="OtherEngine" name="OtherEngine" type="text" placeholder="true o false" value="{{.OtherEngine}}">
+            </div>
+            <div class="form-group">
+                <label for="ReverseResults">Ribaltare i risultati: (se true non avviene il mescolamento)</label>
+                <input class="form-control" id="ReverseResults" name="ReverseResults" type="text" placeholder="true o false" value="{{.ReverseResults}}">
+            </div>
+            <div class="form-group">
+                <label for="AnswerPerPage">Numero di risultati per pagina: (valore tra 0 e 10)</label>
+                <input class="form-control" id="AnswerPerPage" name="AnswerPerPage" type="number" min="0" max="10" value="{{.AnswerPerPage}}">
+            </div>
+            <div class="form-group">
+                <label for="ShuffleAfter">Mescola i risultati dopo la numero: (valore tra 0 e 10)</label>
+                <input class="form-control" id="ShuffleAfter" name="ShuffleAfter" type="number" min="0" max="10" value="{{.ShuffleAfter}}">
+            </div>
+            <div class="form-group">
+                <label for="PickFromPage">Inserisci risultati dalla pagina: (0 per non sporcare i risultati)</label>
+                <input class="form-control" id="PickFromPage" name="PickFromPage" type="number" min="0" value="{{.PickFromPage}}">
+            </div>
+            <p id="result" class="text-success text-center"></p>
+            <input class="btn btn-primary pull-right" type="submit" value="MODIFICA">
+        </form>
+    </body>
+</html>
+
+{{end}}
