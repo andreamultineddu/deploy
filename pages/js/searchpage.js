@@ -349,7 +349,7 @@ function renderRelatedReseaches(div, list)
     $.post("/amultine/get/feedback", {
 
     }).done(function(data, success) {
-		$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p>" + $("#feed .b")[0].innerHTML
+		$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + data + " valutazioni</p>" + $("#feed .b")[0].innerHTML
     }).fail(function() {})
 }
 
