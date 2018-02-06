@@ -320,42 +320,39 @@ function renderRelatedReseaches(div, list)
             + "</div>"
     }
 
-    researches = "0";
     $.post("/amultine/get/feedback", {
 
     }).done(function(data, success) {
 		researches = data
-		console.log(researches)
+
+
+	    //creo il questionario sulla qualita' delle risposte
+	    div.innerHTML += "<div id='feed'>"
+	        + "<div class='h'>"
+	        + "<h3>Valutazione dei risultati</h3>"
+	        + "</div>"
+	        + "<div class='b'>"
+	        + "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p>"
+	        + "<p>La qualit&agrave; delle risposte ha soddisfatto le tue aspettattive: </p>"
+	        + "<form>"
+	        + "     <div class='stars'>"
+	        + "         <input type='radio' name='star' class='star-1' id='star-1'>"
+	        + "         <label class=;star-1' for='star-1'>1</label>"
+	        + "         <input type='radio' name='star' class='star-2' id='star-2'>"
+	        + "         <label class=;star-2' for='star-2'>2</label>"
+	        + "         <input type='radio' name='star' class='star-3' id='star-3' checked>"
+	        + "         <label class=;star-3' for='star-3'>3</label>"
+	        + "         <input type='radio' name='star' class='star-4' id='star-4'>"
+	        + "         <label class=;star-4' for='star-4'>4</label>"
+	        + "         <input type='radio' name='star' class='star-5' id='star-5'>"
+	        + "         <label class=;star-5' for='star-5'>5</label>"
+	        + "         <span></span>"
+	        + "     </div>"
+	        + "</form>"
+	        + "<button class='pull-right' onclick='sendFeedback()'>INVIA FEEDBACK</button>"
+	        + "</div>";
+	        + "</div>";
     }).fail(function() {})
-
-	console.log(researches)
-
-    //creo il questionario sulla qualita' delle risposte
-    div.innerHTML += "<div id='feed'>"
-        + "<div class='h'>"
-        + "<h3>Valutazione dei risultati</h3>"
-        + "</div>"
-        + "<div class='b'>"
-        + "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p>"
-        + "<p>La qualit&agrave; delle risposte ha soddisfatto le tue aspettattive: </p>"
-        + "<form>"
-        + "     <div class='stars'>"
-        + "         <input type='radio' name='star' class='star-1' id='star-1'>"
-        + "         <label class=;star-1' for='star-1'>1</label>"
-        + "         <input type='radio' name='star' class='star-2' id='star-2'>"
-        + "         <label class=;star-2' for='star-2'>2</label>"
-        + "         <input type='radio' name='star' class='star-3' id='star-3' checked>"
-        + "         <label class=;star-3' for='star-3'>3</label>"
-        + "         <input type='radio' name='star' class='star-4' id='star-4'>"
-        + "         <label class=;star-4' for='star-4'>4</label>"
-        + "         <input type='radio' name='star' class='star-5' id='star-5'>"
-        + "         <label class=;star-5' for='star-5'>5</label>"
-        + "         <span></span>"
-        + "     </div>"
-        + "</form>"
-        + "<button class='pull-right' onclick='sendFeedback()'>INVIA FEEDBACK</button>"
-        + "</div>";
-        + "</div>";
 }
 
 function renderPageChange(div, data)
@@ -701,14 +698,13 @@ function sendFeedback()
             query: QueryObject.q,
             feed: $("#feed form input[type=radio]:checked")[0].id.substr(-1)
         }).done(function(data, success) {
-		    researches = "0";
 		    $.post("/amultine/get/feedback", {
 
 		    }).done(function(data, success) {
 		    	researches = data
-		    }).fail(function() {})
 
-        	$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p><p>Ti ringraziamo per aver fornito una valutazione per i risultati di questa ricerca</p>"
+        		$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p><p>Ti ringraziamo per aver fornito una valutazione per i risultati di questa ricerca</p>"
+		    }).fail(function() {})
         })
         .fail(function() {})
 }
