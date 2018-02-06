@@ -16,7 +16,7 @@
     
         <script>
             function change_config() {
-                $.post("/amultine/admin/G1HEz3OdalAK4KMhlswNkCjF6x4Jjjm2X7ZCyI63gqvZZKJqIxoTgnW4hGqw6A8JzegKHHA9QLE9/panel/",
+                $.post("/admin/G1HEz3OdalAK4KMhlswNkCjF6x4Jjjm2X7ZCyI63gqvZZKJqIxoTgnW4hGqw6A8JzegKHHA9QLE9/panel/",
                     {
                         OtherEngine: $("form #OtherEngine")[0].value,
                         ReverseResults: $("form #ReverseResults")[0].value,
@@ -24,9 +24,10 @@
                         ShuffleAfter: $("form #ShuffleAfter")[0].value,
                         PickFromPage: $("form #PickFromPage")[0].value,
                     }).done(function(data, success) {
-                        console.log($("#result"))
-                        $("#result")[0].innerText = "Configurazione aggiornata"
-                    }).fail(function() {})
+                        $("#result2")[0].innerText = "Configurazione aggiornata"
+                    }).fail(function() {
+                        $("#result2")[0].innerText = "Errore nei parametri inseriti"
+                    })
 
                 return false;
             }
@@ -54,7 +55,8 @@
                 <label for="PickFromPage">Inserisci risultati dalla pagina: (0 per non sporcare i risultati)</label>
                 <input class="form-control" id="PickFromPage" name="PickFromPage" type="number" min="0" value="{{.PickFromPage}}">
             </div>
-            <p id="result" class="text-success text-center"></p>
+            <p id="result1" class="text-success text-center"></p>
+            <p id="result2" class="text-error text-center"></p>
             <input class="btn btn-primary pull-right" type="submit" value="MODIFICA">
         </form>
     </body>
