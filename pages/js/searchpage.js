@@ -323,9 +323,9 @@ function renderRelatedReseaches(div, list)
     researches = "0";
     $.post("/amultine/get/feedback", {
 
-    }).done(function(data, success) {console.log(data
-    	)})
-    .fail(function() {})
+    }).done(function(data, success) {
+		researches = data
+    }).fail(function() {})
 
 
     //creo il questionario sulla qualita' delle risposte
@@ -703,9 +703,9 @@ function sendFeedback()
 		    researches = "0";
 		    $.post("/amultine/get/feedback", {
 
-		    }).done(function(data, success) {console.log(data
-		    	)})
-		    .fail(function() {})
+		    }).done(function(data, success) {
+		    	researches = data
+		    }).fail(function() {})
 
         	$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p><p>Ti ringraziamo per aver fornito una valutazione per i risultati di questa ricerca</p>"
         })
