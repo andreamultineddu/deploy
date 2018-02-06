@@ -323,7 +323,8 @@ function renderRelatedReseaches(div, list)
     researches = "0";
     $.post("/amultine/get/feedback", {
 
-    }).done(function(data, success) {console.log(data)})
+    }).done(function(data, success) {console.log(data
+    	)})
     .fail(function() {})
 
 
@@ -333,6 +334,7 @@ function renderRelatedReseaches(div, list)
         + "<h3>Valutazione dei risultati</h3>"
         + "</div>"
         + "<div class='b'>"
+        + "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p>"
         + "<p>La qualit&agrave; delle risposte ha soddisfatto le tue aspettattive: </p>"
         + "<form>"
         + "     <div class='stars'>"
@@ -698,7 +700,14 @@ function sendFeedback()
             query: QueryObject.q,
             feed: $("#feed form input[type=radio]:checked")[0].id.substr(-1)
         }).done(function(data, success) {
-        	$("#feed .b")[0].innerHTML = "<p>Ti ringraziamo per aver fornito una valutazione per i risultati di questa ricerca</p>"
+		    researches = "0";
+		    $.post("/amultine/get/feedback", {
+
+		    }).done(function(data, success) {console.log(data
+		    	)})
+		    .fail(function() {})
+
+        	$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p><p>Ti ringraziamo per aver fornito una valutazione per i risultati di questa ricerca</p>"
         })
         .fail(function() {})
 }
