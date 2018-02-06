@@ -319,12 +319,6 @@ function renderRelatedReseaches(div, list)
             + s
             + "</div>"
     }
-
-    $.post("/amultine/get/feedback", {
-
-    }).done(function(data, success) {
-		researches = data
-    }).fail(function() {})
     
     //creo il questionario sulla qualita' delle risposte
     div.innerHTML += "<div id='feed'>"
@@ -332,7 +326,6 @@ function renderRelatedReseaches(div, list)
         + "<h3>Valutazione dei risultati</h3>"
         + "</div>"
         + "<div class='b'>"
-        + "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p>"
         + "<p>La qualit&agrave; delle risposte ha soddisfatto le tue aspettattive: </p>"
         + "<form>"
         + "     <div class='stars'>"
@@ -352,6 +345,12 @@ function renderRelatedReseaches(div, list)
         + "<button class='pull-right' onclick='sendFeedback()'>INVIA FEEDBACK</button>"
         + "</div>";
         + "</div>";
+
+    $.post("/amultine/get/feedback", {
+
+    }).done(function(data, success) {
+		$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p>" + $("#feed .b")[0].innerHTML
+    }).fail(function() {})
 }
 
 function renderPageChange(div, data)
@@ -700,11 +699,9 @@ function sendFeedback()
 		    $.post("/amultine/get/feedback", {
 
 		    }).done(function(data, success) {
-		    	researches = data
-
+        		$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + data + " valutazioni</p><p>Ti ringraziamo per aver fornito una valutazione per i risultati di questa ricerca</p>"
 		    }).fail(function() {})
         	
-        	$("#feed .b")[0].innerHTML = "<p>Hai gi&agrave; effettuato " + researches + " valutazioni</p><p>Ti ringraziamo per aver fornito una valutazione per i risultati di questa ricerca</p>"
         })
         .fail(function() {})
 }
