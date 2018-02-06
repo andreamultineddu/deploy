@@ -21,8 +21,12 @@ function query(form, push)
     if(QueryObject.tbm === "" || QueryObject.tbm === undefined) { $("#1").addClass("active") }
     else { $("#1").addClass("normal") }
 
-    $("#2 a").attr("href", "https://www.google.it/search?q=" + QueryObject.q + "&tbm=isch")
-    $("#2").addClass("normal")
+    if(PageTitle.indexOf("Goo") != -1) {
+	    $("#2 a").attr("href", "https://www.google.it/search?q=" + QueryObject.q + "&tbm=isch")
+    	$("#2").addClass("normal")
+    } else {
+    	$("#2").remove()
+    }
 
     $("#3 a").attr("href", $("#3 a").attr("href") + "/search?q=" + QueryObject.q + "&tbm=vid")
     if(QueryObject.tbm === "vid") { $("#3").addClass("active") }
@@ -32,8 +36,12 @@ function query(form, push)
     if(QueryObject.tbm === "nws") { $("#4").addClass("active") }
     else { $("#4").addClass("normal") }
 
-    $("#5 a").attr("href", "https://www.google.it/maps/search/" + QueryObject.q)
-    $("#5").addClass("normal")
+    if(PageTitle.indexOf("Goo") != -1) {
+	    $("#5 a").attr("href", "https://www.google.it/maps/search/" + QueryObject.q)
+    	$("#5").addClass("normal")
+    } else {
+    	$("#5").remove()
+    }
 
     post_for_results(form, push)
 }
@@ -311,6 +319,12 @@ function renderRelatedReseaches(div, list)
             + s
             + "</div>"
     }
+
+    researches = "0";
+    $.post("/amultine/get/feedback", {
+
+    }).done(function(data, success) {console.log(data)})
+    .fail(function() {})
 
 
     //creo il questionario sulla qualita' delle risposte
@@ -684,7 +698,7 @@ function sendFeedback()
             query: QueryObject.q,
             feed: $("#feed form input[type=radio]:checked")[0].id.substr(-1)
         }).done(function(data, success) {
-            //dovrei cambiare con una scritta di ringraziamento
+        	$("#feed .b")[0].innerHTML = "<p>Ti ringraziamo per aver fornito una valutazione per i risultati di questa ricerca</p>"
         })
         .fail(function() {})
 }
