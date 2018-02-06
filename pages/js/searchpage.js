@@ -325,6 +325,7 @@ function renderRelatedReseaches(div, list)
 
     }).done(function(data, success) {
 		researches = data
+		console.log(researches)
     }).fail(function() {})
 
 
