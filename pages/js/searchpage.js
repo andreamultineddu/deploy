@@ -328,6 +328,7 @@ function renderRelatedReseaches(div, list)
 		console.log(researches)
     }).fail(function() {})
 
+	console.log(researches)
 
     //creo il questionario sulla qualita' delle risposte
     div.innerHTML += "<div id='feed'>"
@@ -625,7 +626,6 @@ function cleanAllGoogleURL()
         }
         else if(links[i].href.indexOf("/url?q=") != -1)
         {
-	    console.log(links[i])
             links[i].href = links[i].href.split("/url?q=")[1].split("&")[0]
         }
     }
