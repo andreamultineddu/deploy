@@ -23,7 +23,7 @@ function renderMobilePageChange(div)
 
     if(QueryObject.page > 1)
     {
-        link1 = "<div class='pull-left text-right' style='margin-bottom: -4.25em;'><a href='/amultine/redirect?qr=" + QueryObject.q
+        link1 = "<div class='pull-left text-right' style='margin-bottom: -4.25em;'><a href='/searchtest/redirect?qr=" + QueryObject.q
         if(QueryObject.page > 2)
             link1 += "%26page=" + (parseInt(QueryObject.page) - 1)
         link1 += "&pg=" + QueryObject.page + "&sct=_ft&rdr=&asc=-1' style='display: block; width: 8.5em;'>&laquo;&nbsp;&nbsp;&nbsp;</a></div>"
@@ -31,7 +31,7 @@ function renderMobilePageChange(div)
     else
         link1 = ""
     link2 = "<div class='text-center' style='width: 8em; margin: 0 auto;'>Pagina " + QueryObject.page + "</div>"
-    link3 = "<div class='pull-right text-left' style='margin-top: -1.5em'><a href='/amultine/redirect?qr=" + QueryObject.q + "%26page=" + (parseInt(QueryObject.page) + 1) + "&pg=" + QueryObject.page + "&sct=_ft&rdr=&asc=-1' style='display: block; width: 8.5em;'>&nbsp;&nbsp;&nbsp;&raquo;</a></div>"
+    link3 = "<div class='pull-right text-left' style='margin-top: -1.5em'><a href='/searchtest/redirect?qr=" + QueryObject.q + "%26page=" + (parseInt(QueryObject.page) + 1) + "&pg=" + QueryObject.page + "&sct=_ft&rdr=&asc=-1' style='display: block; width: 8.5em;'>&nbsp;&nbsp;&nbsp;&raquo;</a></div>"
 
     foot.innerHTML = link1 + link2 + link3
 }
