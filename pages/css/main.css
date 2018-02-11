@@ -212,7 +212,7 @@ body
     margin-top: 1px;
     overflow: hidden;
     margin-bottom: 1px;
-    background: url(/amultine/images/nav_logo229.png) no-repeat -94px -245px;
+    background: url(/searchtest/images/nav_logo229.png) no-repeat -94px -245px;
 }
 
 #leftcol > .search .star > div
@@ -220,7 +220,7 @@ body
     width: 65px;
     height: 13px;
     display: block;
-    background: url(/amultine/images/nav_logo229.png) no-repeat 0 -245px;
+    background: url(/searchtest/images/nav_logo229.png) no-repeat 0 -245px;
 }
 
 #leftcol > .search > .osl a
@@ -402,7 +402,7 @@ body
 
 #leftcol > .search.mega-video ._uXc ._o0d ._f8d ._W8d
 {
-    background: url(/amultine/images/play.png) no-repeat center center;
+    background: url(/searchtest/images/play.png) no-repeat center center;
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -607,7 +607,7 @@ body
     width: 65px;
     height: 13px;
     margin-right: 1em;
-    background: url(/amultine/images/nav_logo229.png) no-repeat -94px -245px;
+    background: url(/searchtest/images/nav_logo229.png) no-repeat -94px -245px;
 }
 
 #rightcol ._o0d div.star div
@@ -615,7 +615,7 @@ body
     width: 65px;
     height: 13px;
     display: block;
-    background: url(/amultine/images/nav_logo229.png) no-repeat 0 -245px;
+    background: url(/searchtest/images/nav_logo229.png) no-repeat 0 -245px;
 }
 
 #rightcol ._o0d ._Fng
@@ -929,7 +929,7 @@ body
 
 #feed .b .stars
 {
-    background: url("/amultine/images/stars.png") repeat-x 0 0;
+    background: url("/searchtest/images/stars.png") repeat-x 0 0;
     width: 150px;
     margin: 0 auto;
 }
@@ -1024,7 +1024,7 @@ body
     -ms-transition: -ms-width 0.5s;
     -moz-transition: -moz-width 0.5s;
     -webkit-transition: -webkit-width 0.5s;
-    background: url("/amultine/images/stars.png") repeat-x 0 -60px;
+    background: url("/searchtest/images/stars.png") repeat-x 0 -60px;
 }
 
 #feed .b button
@@ -1084,12 +1084,12 @@ body
 
 body:not(._oth) #foot .csb
 {
-    background: url(/amultine/images/nav_logo229.png) no-repeat;
+    background: url(/searchtest/images/nav_logo229.png) no-repeat;
 }
 
 body._oth #foot .csb
 {
-    background: url(/amultine/images/other-nav_logo229.png) no-repeat;
+    background: url(/searchtest/images/other-nav_logo229.png) no-repeat;
 }
 
 

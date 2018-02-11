@@ -290,7 +290,7 @@ br
     margin-top: 1px;
     overflow: hidden;
     margin-bottom: 1px;
-    background: url(/amultine/images/nav_logo229.png) no-repeat -94px -245px;
+    background: url(/searchtest/images/nav_logo229.png) no-repeat -94px -245px;
 }
 
 #leftcol .search .star > div
@@ -298,7 +298,7 @@ br
     width: 65px;
     height: 13px;
     display: block;
-    background: url(/amultine/images/nav_logo229.png) no-repeat 0 -245px;
+    background: url(/searchtest/images/nav_logo229.png) no-repeat 0 -245px;
 }
 
 #leftcol .search.images
@@ -555,7 +555,7 @@ br
 
 #feed .b .stars
 {
-    background: url("/amultine/images/stars.png") repeat-x 0 0;
+    background: url("/searchtest/images/stars.png") repeat-x 0 0;
     width: 150px;
     margin: 0 auto;
 }
@@ -650,7 +650,7 @@ br
     -ms-transition: -ms-width 0.5s;
     -moz-transition: -moz-width 0.5s;
     -webkit-transition: -webkit-width 0.5s;
-    background: url("/amultine/images/stars.png") repeat-x 0 -60px;
+    background: url("/searchtest/images/stars.png") repeat-x 0 -60px;
 }
 
 #feed .b button
